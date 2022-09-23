@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/briandowns/spinner"
 	"github.com/xanzy/go-gitlab"
-	"github.com/zcubbs/gitlab-stat-export/models"
+	"github.com/zcubbs/gitlab-stats/models"
 	"log"
 	"time"
 )

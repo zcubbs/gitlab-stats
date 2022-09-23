@@ -1,4 +1,4 @@
-module github.com/zcubbs/gitlab-stat-export
+module github.com/zcubbs/gitlab-stats
 
 go 1.18
 

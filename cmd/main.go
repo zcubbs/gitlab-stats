@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/zcubbs/gitlab-stat-export/configs"
-	"github.com/zcubbs/gitlab-stat-export/internal/csv"
-	"github.com/zcubbs/gitlab-stat-export/internal/gitlab"
+	"github.com/zcubbs/gitlab-stats/configs"
+	"github.com/zcubbs/gitlab-stats/internal/csv"
+	"github.com/zcubbs/gitlab-stats/internal/gitlab"
 )
 
 func main() {

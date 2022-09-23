@@ -3,8 +3,8 @@ package csv
 import (
 	"fmt"
 	"github.com/gocarina/gocsv"
-	"github.com/zcubbs/gitlab-stat-export/internal/utils"
-	"github.com/zcubbs/gitlab-stat-export/models"
+	"github.com/zcubbs/gitlab-stats/internal/utils"
+	"github.com/zcubbs/gitlab-stats/models"
 	"os"
 )
 
