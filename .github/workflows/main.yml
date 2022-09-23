@@ -1,0 +1,44 @@
+name: build-cli
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .
+on:
+  push:
+    branches: [ main ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.18
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          distribution: goreleaser
+          version: latest
+          args:  release -f _goreleaser.yaml --rm-dist
+          workdir: .
+        env:
+          # Must setup a GITHUB_TOKEN secret with package write access
+          GITHUB_TOKEN: ${{ secrets.GORELEASE_GITHUB_TOKEN }}
