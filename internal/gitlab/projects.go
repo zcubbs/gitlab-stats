@@ -95,11 +95,10 @@ func GetGroupProjects(groupId int) []models.GitlabProject {
 }
 
 func GetProjectUsers(projectId int) []models.GitlabUser {
-	users, _, err := client.Projects.ListProjectsUsers(
+	users, _, err := client.ProjectMembers.ListProjectMembers(
 		projectId,
-		&gitlab.ListProjectUserOptions{
+		&gitlab.ListProjectMembersOptions{
 			ListOptions: gitlab.ListOptions{},
-			Search:      nil,
 		},
 	)
 	if err != nil {
@@ -109,12 +108,13 @@ func GetProjectUsers(projectId int) []models.GitlabUser {
 	var gitlabUsers []models.GitlabUser
 	for _, user := range users {
 		gitlabUsers = append(gitlabUsers, models.GitlabUser{
-			ID:        user.ID,
-			Name:      user.Name,
-			Username:  user.Username,
-			State:     user.State,
-			AvatarURL: user.AvatarURL,
-			WebURL:    user.WebURL,
+			ID:          user.ID,
+			Name:        user.Name,
+			Username:    user.Username,
+			State:       user.State,
+			AvatarURL:   user.AvatarURL,
+			WebURL:      user.WebURL,
+			AccessLevel: GetAccessLevel(int(user.AccessLevel)),
 		})
 	}
 
