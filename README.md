@@ -2,7 +2,7 @@
 
 This CLI allows for synthesized CSV extract of Gitlab data:
 
-- [x] Export Projects for a given group
+- [x] Export Projects for a given group & its sub-groups
 - [x] Export User data, and AccessLevel for a given Project or Group
 
 
