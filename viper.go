@@ -1,4 +1,4 @@
-package configs
+package main
 
 import (
 	"fmt"
@@ -12,6 +12,17 @@ import (
 var cfgFile string
 
 var Config Configuration
+
+type Configuration struct {
+	Gitlab `mapstructure:"gitlab" json:"gitlab"`
+}
+
+type Gitlab struct {
+	Url          string `mapstructure:"url" json:"url"`
+	PrivateToken string `mapstructure:"private_token" json:"private_token"`
+	GroupIds     []int  `mapstructure:"group_ids" json:"group_ids"`
+	ProjectIds   []int  `mapstructure:"project_ids" json:"project_ids"`
+}
 
 var (
 	defaults = map[string]interface{}{
@@ -29,7 +40,8 @@ var (
 var allowedEnvVarKeys = []string{
 	"gitlab.url",
 	"gitlab.private_token",
-	"gitlab.root_group_id",
+	"gitlab.group_ids",
+	"gitlab.project_ids",
 	"debug.enabled",
 }
 
