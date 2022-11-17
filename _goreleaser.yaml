@@ -15,7 +15,7 @@ builds:
       - arm64
     id: "gitlab-stats"
     dir: .
-    main: ./main.go
+    main: .
 
 archives:
   - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
