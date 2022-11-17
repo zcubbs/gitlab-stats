@@ -1,15 +1,10 @@
 # Gitlab Stats
 
-This CLI allows for synthesized CSV extract of Gitlab data:
+This tool allows for CSV extract of Gitlab project member data:
 
-- [x] Export Projects for a given group & its sub-groups
-- [x] Export User data, and AccessLevel for a given Project or Group
+- [x] Export User data, and AccessLevel for a given List of Projects
 
 
 ## Usage
 
-```bash
-~ gitlab-stats export group data -id <group_id> 
-```
-
-> Must export Env Variables: `GS_GITLAB_PRIVATE_TOKEN`and `GS_GITLAB_URL`. Optional: `GS_GITLAB_ROOT_GROUP_ID` if not fed to cmd
+> Must export Env Variables: `GS_GITLAB_PRIVATE_TOKEN`, `GS_GITLAB_URL`, `GS_GITLAB_PROJECT_IDS`
